@@ -32,7 +32,7 @@ resource "aws_lambda_function" "textcompletion" {
 
   environment {
     variables = {
-      GPT_TOKEN = "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"
+      GPT_TOKEN = "your ChatGPT Token here"
     }
   }
 }
