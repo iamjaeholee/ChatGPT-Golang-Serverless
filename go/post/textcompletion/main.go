@@ -35,11 +35,13 @@ func main() {
 }
 
 func handler(ctx context.Context, req events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
+	prompt := req.QueryStringParameters["prompt"]
+
 	options := gogpt.CompletionRequest{
 		Model:       gogpt.GPT3TextDavinci003,
 		MaxTokens:   50,
 		Temperature: 1,
-		Prompt:      "what is the korean-war?",
+		Prompt:      prompt,
 	}
 
 	resp, err := service.GptCompletionCaller(options)
