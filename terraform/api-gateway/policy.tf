@@ -41,16 +41,7 @@ EOF
   tags = var.aws_common_tags
 }
 
-data "aws_iam_policy" "admin_policy" {
-  name = "AdministratorAccess"
-}
-
 resource "aws_iam_role_policy_attachment" "lambda_logs" {
   role       = aws_iam_role.lambda_role.name
   policy_arn = aws_iam_policy.lambda_logging.arn
-}
-
-resource "aws_iam_role_policy_attachment" "admin" {
-  role       = aws_iam_role.lambda_role.name
-  policy_arn = data.aws_iam_policy.admin_policy.arn
 }
