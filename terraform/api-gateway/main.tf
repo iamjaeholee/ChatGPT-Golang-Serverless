@@ -52,6 +52,14 @@ resource "aws_api_gateway_integration" "textcompletion" {
   ]
 }
 
+resource "aws_api_gateway_method_response" "response_200" {
+  rest_api_id = aws_api_gateway_rest_api.api.id
+  resource_id = aws_api_gateway_resource.textcompletion.id
+  http_method = aws_api_gateway_method.textcompletion.http_method
+  status_code = "200"
+}
+
+
 resource "aws_api_gateway_deployment" "deployment" {
   depends_on = [
     aws_api_gateway_integration.textcompletion,
@@ -59,5 +67,5 @@ resource "aws_api_gateway_deployment" "deployment" {
   ]
 
   rest_api_id = aws_api_gateway_rest_api.api.id
-  stage_name  = "dev"
+  stage_name  = "dev1"
 }
