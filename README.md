@@ -20,9 +20,19 @@ Install Golang
 
 go get some ChatGPT Token
 
-### update environment variables
+### 1. update environment variables
 
 change `terraform/api-gateway/lambda.tf` `aws_lambda_function.textcompletion ` environment variables **GPT_TOKEN** or you can add kind of secret manager resource for managing the token.
+
+### 2. secret token value using console
+
+if you type secret token value using console it will generate secrets manager in AWS and TOKEN will be automatically included in lambda function as environment variable `GPT_TOKEN`
+
+example
+
+```
+terraform apply -var chat_secret={\"GPT_TOKEN\":\"sk-\"}
+```
 
 ## Build
 

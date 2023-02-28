@@ -7,4 +7,5 @@ module "api-gateway" {
 
   service_name    = local.service_name
   aws_common_tags = local.aws_common_tags
+  chat_secret     = var.chat_secret
 }

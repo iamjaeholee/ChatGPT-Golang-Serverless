@@ -32,7 +32,7 @@ resource "aws_lambda_function" "textcompletion" {
 
   environment {
     variables = {
-      GPT_TOKEN = "your ChatGPT Token here"
+      GPT_TOKEN = jsondecode(aws_secretsmanager_secret_version.chat_secret.secret_string)["GPT_TOKEN"]
     }
   }
 }

@@ -11,3 +11,8 @@ variable "aws_common_tags" {
     Service   = "test"
   }
 }
+
+variable "chat_secret" {
+  type      = map(string)
+  sensitive = true
+}
